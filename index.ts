@@ -1,12 +1,16 @@
-import express from 'express';
-const app = express();
-const port = 3000;
+var ncp = require("copy-paste");
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
-app.listen(port, () => {
-  return console.log(`Express is listening at http://localhost:${port}`);
-});
-
+const listOfCopiedItems = []
+function trackAllCopiedText (prev = "") {
+    const text  = ncp.paste()
+    if (prev !== text){
+        listOfCopiedItems.push({
+            text,
+            dateTime: new Date()
+        })
+    }
+    setTimeout(() => {
+        trackAllCopiedText(text)
+    }, 1000);
+}
+trackAllCopiedText()
