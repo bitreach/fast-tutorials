@@ -1,2 +1,3 @@
 # fast-tutorials
-Takes the hassle out of writing tutorials
+Take the hassle out of writing tutorials
+
